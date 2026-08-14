@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>বিবাহের আমন্ত্রণ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #1a0a00;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* ── Card wrapper ── */
+    .card {
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .card img.bg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Text overlay sits on top of the image ── */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Noto Serif Bengali', serif;
+      color: #5a1a00;
+    }
+
+    /* ═══════════════════════
+       PANEL 1  — top (~38% of image height)
+       Bride & Groom names area
+    ═══════════════════════ */
+    .panel-top {
+      width: 100%;
+      height: 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2% 8%;
+      text-align: center;
+    }
+
+    .shubho {
+      font-size: clamp(0.6rem, 2vw, 1rem);
+      letter-spacing: 0.3em;
+      color: #8b1a00;
+      margin-bottom: 2%;
+      font-weight: 500;
+    }
+
+    .couple-names {
+      font-size: clamp(1.4rem, 5.5vw, 3rem);
+      font-weight: 700;
+      color: #6b1200;
+      line-height: 1.3;
+    }
+
+    .amp {
+      font-size: clamp(1rem, 3.5vw, 2rem);
+      color: #b8860b;
+      margin: 0 6px;
+    }
+
+    .subtitle {
+      font-size: clamp(0.55rem, 1.8vw, 0.9rem);
+      color: #7a3000;
+      margin-top: 2%;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════
+       PANEL 2  — middle (~24% of image height)
+       Kalash / frame area
+    ═══════════════════════ */
+    .panel-mid {
+      width: 100%;
+      height: 24%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1% 20%;
+      text-align: center;
+    }
+
+    .date-time {
+      font-size: clamp(0.7rem, 2.2vw, 1.1rem);
+      font-weight: 600;
+      color: #6b1200;
+      line-height: 1.8;
+    }
+
+    .venue {
+      font-size: clamp(0.6rem, 1.8vw, 0.9rem);
+      color: #5a1a00;
+      font-family: 'Hind Siliguri', sans-serif;
+      margin-top: 2%;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════
+       PANEL 3  — bottom (~38% of image height)
+       Reception couple area
+    ═══════════════════════ */
+    .panel-bot {
+      width: 100%;
+      height: 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 2% 6% 2% 40%;
+      text-align: center;
+    }
+
+    .invite-msg {
+      font-size: clamp(0.55rem, 1.7vw, 0.88rem);
+      color: #5a1a00;
+      font-family: 'Hind Siliguri', sans-serif;
+      line-height: 1.9;
+      margin-bottom: 3%;
+    }
+
+    .invite-msg strong {
+      font-weight: 600;
+      color: #6b1200;
+    }
+
+    .rsvp {
+      font-size: clamp(0.5rem, 1.5vw, 0.78rem);
+      color: #8b1a00;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Background image -->
+  <img class="bg" src="bgc.png" alt="বিবাহের আমন্ত্রণ পটভূমি" />
+
+  <!-- Text overlay -->
+  <div class="overlay">
+
+    <!-- PANEL 1: Top — names -->
+    <div class="panel-top">
+      <p class="shubho">✦ শুভ বিবাহ ✦</p>
+      <div class="couple-names">
+        রাহুল <span class="amp">&amp;</span> প্রিয়া
+      </div>
+      <p class="subtitle">
+        শর্মা পরিবার &amp; বর্মা পরিবারের আশীর্বাদে
+      </p>
+    </div>
+
+    <!-- PANEL 2: Middle — date/venue -->
+    <div class="panel-mid">
+      <div class="date-time">
+        📅 ১৪ ফেব্রুয়ারি, ২০২৭ &nbsp;|&nbsp; সন্ধ্যা ৭:০০টা
+      </div>
+      <div class="venue">
+        🏛️ দ্য গ্র্যান্ড প্যালেস ব্যানকোয়েট হল<br/>
+        ১২৩, রোজ গার্ডেন রোড, ঢাকা — ১২০০
+      </div>
+    </div>
+
+    <!-- PANEL 3: Bottom — invitation message -->
+    <div class="panel-bot">
+      <div class="invite-msg">
+        আমরা সাদরে আমন্ত্রণ জানাচ্ছি<br/>
+        আপনাকে ও আপনার পরিবারকে<br/>
+        আমাদের প্রিয় সন্তানদের<br/>
+        <strong>বিবাহ অনুষ্ঠানে</strong>
+      </div>
+      <div class="rsvp">
+        📞 +৮৮০ ১৭১২-৩৪৫৬৭৮<br/>
+        RSVP: ১ ফেব্রুয়ারির মধ্যে
+      </div>
+    </div>
+
+  </div><!-- end .overlay -->
+
+</div><!-- end .card -->
+
+</body>
+</html>

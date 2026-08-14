@@ -1,211 +1,463 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>বিবাহের আমন্ত্রণ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
 
-    html, body {
-      width: 100%;
-      min-height: 100vh;
-      background-color: #1a0a00;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
-    /* ── Card wrapper ── */
-    .card {
-      width: 100%;
-      max-width: 700px;
-      position: relative;
-    }
+* { box-sizing: border-box; }
 
-    .card img.bg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
 
-    /* ── Text overlay sits on top of the image ── */
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: 'Noto Serif Bengali', serif;
-      color: #5a1a00;
-    }
+body {
+  background: #180900;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0;
+}
 
-    /* ═══════════════════════
-       PANEL 1  — top (~38% of image height)
-       Bride & Groom names area
-    ═══════════════════════ */
-    .panel-top {
-      width: 100%;
-      height: 38%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2% 8%;
-      text-align: center;
-    }
+.card {
+  position: relative;
+  width: min(100%, 900px);
+  overflow: hidden;
+}
 
-    .shubho {
-      font-size: clamp(0.6rem, 2vw, 1rem);
-      letter-spacing: 0.3em;
-      color: #8b1a00;
-      margin-bottom: 2%;
-      font-weight: 500;
-    }
+.background {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-    .couple-names {
-      font-size: clamp(1.4rem, 5.5vw, 3rem);
-      font-weight: 700;
-      color: #6b1200;
-      line-height: 1.3;
-    }
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Serif Bengali", serif;
+  color: #5b1700;
+  pointer-events: none;
+}
 
-    .amp {
-      font-size: clamp(1rem, 3.5vw, 2rem);
-      color: #b8860b;
-      margin: 0 6px;
-    }
+/* ---------------- TOP SECTION ---------------- */
+.top {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  height: 41%;
+  padding: 0% 0% 6%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    .subtitle {
-      font-size: clamp(0.55rem, 1.8vw, 0.9rem);
-      color: #7a3000;
-      margin-top: 2%;
-      font-family: 'Hind Siliguri', sans-serif;
-      font-weight: 400;
-    }
+.top .symbol {
+  font-size: clamp(13px, 2vw, 22px);
+  color: #7c1800;
+  margin-bottom: 1%;
+}
 
-    /* ═══════════════════════
-       PANEL 2  — middle (~24% of image height)
-       Kalash / frame area
-    ═══════════════════════ */
-    .panel-mid {
-      width: 100%;
-      height: 24%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1% 20%;
-      text-align: center;
-    }
+.top .intro {
+  font-size: clamp(10px, 1.6vw, 16px);
+  line-height: 1.65;
+  font-weight: 500;
+}
 
-    .date-time {
-      font-size: clamp(0.7rem, 2.2vw, 1.1rem);
-      font-weight: 600;
-      color: #6b1200;
-      line-height: 1.8;
-    }
+.names {
+  margin: 1.5% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 22px);
+}
 
-    .venue {
-      font-size: clamp(0.6rem, 1.8vw, 0.9rem);
-      color: #5a1a00;
-      font-family: 'Hind Siliguri', sans-serif;
-      margin-top: 2%;
-      line-height: 1.6;
-    }
+.name {
+  font-size: clamp(25px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #681100;
+  white-space: nowrap;
+}
 
-    /* ═══════════════════════
-       PANEL 3  — bottom (~38% of image height)
-       Reception couple area
-    ═══════════════════════ */
-    .panel-bot {
-      width: 100%;
-      height: 38%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 2% 6% 2% 40%;
-      text-align: center;
-    }
+.amp {
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 4vw, 42px);
+  color: #b8860b;
+}
 
-    .invite-msg {
-      font-size: clamp(0.55rem, 1.7vw, 0.88rem);
-      color: #5a1a00;
-      font-family: 'Hind Siliguri', sans-serif;
-      line-height: 1.9;
-      margin-bottom: 3%;
-    }
+.parents {
+  font-size: clamp(10px, 1.55vw, 15px);
+  line-height: 1.8;
+}
 
-    .invite-msg strong {
-      font-weight: 600;
-      color: #6b1200;
-    }
+.location-top {
+  margin-top: 1.5%;
+  background: rgba(91, 23, 0, .94);
+  color: #f7d98c;
+  border-radius: 999px;
+  padding: 1.1% 7%;
+  font-size: clamp(9px, 1.55vw, 15px);
+  line-height: 1.55;
+  min-width: 42%;
+}
 
-    .rsvp {
-      font-size: clamp(0.5rem, 1.5vw, 0.78rem);
-      color: #8b1a00;
-      font-family: 'Hind Siliguri', sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-  </style>
+/* ---------------- MIDDLE SECTION ---------------- */
+.middle {
+  position: absolute;
+  top: 41%;
+  left: 0;
+  width: 100%;
+  height: 26%;
+  display: grid;
+  grid-template-columns: 31% 38% 31%;
+  text-align: center;
+  align-items: center;
+  padding: 3% 3% 4%;
+}
+
+.event {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4%;
+}
+
+.event-title {
+  font-size: clamp(14px, 2.5vw, 28px);
+  font-weight: 700;
+  margin-bottom: 4%;
+}
+
+.event-date {
+  font-size: clamp(9px, 1.7vw, 17px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.event-day,
+.event-time,
+.event-place {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: clamp(8px, 1.35vw, 14px);
+  line-height: 1.55;
+}
+
+.event-day { margin-top: 1%; }
+.event-time { margin-top: 1%; }
+.event-place { margin-top: 3%; }
+
+.middle-center {
+  padding-left: 8%;
+  padding-right: 8%;
+  position: relative;
+  top: -26px;
+}
+
+/* ---------------- RECEPTION SECTION ---------------- */
+.bottom {
+  position: absolute;
+  top: 67%;
+  left: 0;
+  width: 100%;
+  height: 33%;
+  padding: 2% 4% 2% 38%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+/* LEFT col — invitation message */
+.reception-left {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 3%;
+}
+
+/* RIGHT col — date / time / location */
+.reception-right {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  padding-left: 2%;
+}
+
+.reception-title {
+  font-size: clamp(14px, 2.8vw, 28px);
+  font-weight: 700;
+  margin-bottom: 2%;
+}
+
+.message {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: clamp(8px, 1.3vw, 13px);
+  line-height: 1.75;
+}
+
+.closing {
+  margin-top: 3%;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: clamp(7px, 1.2vw, 12px);
+  line-height: 1.5;
+}
+
+/* right col items */
+.reception-date {
+  font-size: clamp(11px, 2vw, 20px);
+  font-weight: 700;
+  color: #6b1200;
+}
+
+.reception-time,
+.reception-place {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: clamp(8px, 1.4vw, 14px);
+  line-height: 1.6;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 2%;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: clamp(7px, 1.2vw, 12px);
+  color: #7b1a1a;
+  text-decoration: none;
+  border: 1px solid #b8860b;
+  padding: 2px 8px;
+  border-radius: 3px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.map-link:hover {
+  background: #b8860b;
+  color: #fff;
+}
+  .parents {
+    margin: 1.5% 0;
+    line-height: 1.45;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 50px;
+  }
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 600px) {
+  body { padding: 0; }
+
+  .top {
+    padding-left: 25%;
+    padding-right: 25%;
+    top: 21px;
+  }
+
+  .top .intro {
+    line-height: 1.45;
+  }
+
+  .names {
+    gap: 5px;
+  }
+
+  .location-top {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .middle {
+    grid-template-columns: 31% 38% 31%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .event {
+    padding: 2%;
+  }
+
+  .bottom {
+    padding-left: 39%;
+    padding-right: 4%;
+  }
+}
+
+@media (max-width: 400px) {
+  .top {
+    padding-left: 24%;
+    padding-right: 24%;
+  }
+
+  /*.top .symbol {
+    display: none;
+  }*/
+
+
+  
+
+  .middle {
+    padding-top: 2%;
+  }
+
+  .event-title {
+    margin-bottom: 2%;
+  }
+
+  .bottom {
+    padding-left: 40%;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <div class="card">
 
-  <!-- Background image -->
-  <img class="bg" src="bgc.png" alt="বিবাহের আমন্ত্রণ পটভূমি" />
-
-  <!-- Text overlay -->
+  <!-- The generated artwork is embedded directly into this HTML.
+       No separate image file is required. -->
+  <img class="background" src="bgc.png">
   <div class="overlay">
 
-    <!-- PANEL 1: Top — names -->
-    <div class="panel-top">
-      <p class="shubho">✦ শুভ বিবাহ ✦</p>
-      <div class="couple-names">
-        রাহুল <span class="amp">&amp;</span> প্রিয়া
-      </div>
-      <p class="subtitle">
-        শর্মা পরিবার &amp; বর্মা পরিবারের আশীর্বাদে
-      </p>
+    <!-- ================= TOP / COUPLE ================= -->
+    <section class="top">
+
+      <div class="symbol">সনাতন ধর্মাবলম্বী <br>
+      আম্বারিশ রায় ও অপর্ণা রায়
     </div>
 
-    <!-- PANEL 2: Middle — date/venue -->
-    <div class="panel-mid">
-      <div class="date-time">
-        📅 ১৪ ফেব্রুয়ারি, ২০২৭ &nbsp;|&nbsp; সন্ধ্যা ৭:০০টা
+      <div class="intro">
+        সপরিবারে আপনাদের সাদর আমন্ত্রণ জানাচ্ছি<br>
+        আমাদের পুত্র ও পুত্রবধূর শুভ বিবাহ অনুষ্ঠানে
       </div>
-      <div class="venue">
-        🏛️ দ্য গ্র্যান্ড প্যালেস ব্যানকোয়েট হল<br/>
-        ১২৩, রোজ গার্ডেন রোড, ঢাকা — ১২০০
-      </div>
-    </div>
 
-    <!-- PANEL 3: Bottom — invitation message -->
-    <div class="panel-bot">
-      <div class="invite-msg">
-        আমরা সাদরে আমন্ত্রণ জানাচ্ছি<br/>
-        আপনাকে ও আপনার পরিবারকে<br/>
-        আমাদের প্রিয় সন্তানদের<br/>
-        <strong>বিবাহ অনুষ্ঠানে</strong>
+      <div class="names">
+        <div class="name">সৌম্য</div>
+        <div class="amp">&amp;</div>
+        <div class="name">সোনালি</div>
       </div>
-      <div class="rsvp">
-        📞 +৮৮০ ১৭১২-৩৪৫৬৭৮<br/>
-        RSVP: ১ ফেব্রুয়ারির মধ্যে
+
+      <div class="parents">
+        <div class="parents_g"><i>(অদ্বিতীয় পুত্র)</i><br>
+          <b>আম্বারিশ রায়</b><br>
+          ও<br>
+          <b>অপর্ণা রায়</b>
+        </div>
+        <div class="parents_b"><i>(কনিষ্ঠ কন্যা)</i><br>
+          <b>অমল কুমার মন্ডল</b><br>
+          ও<br>
+          <b>বিভা মন্ডল</b>
+        </div>
       </div>
-    </div>
 
-  </div><!-- end .overlay -->
+      <div class="location-top">
+        📍 মালঞ্চা - 743425
+      </div>
 
-</div><!-- end .card -->
+    </section>
+
+
+    <!-- ================= MIDDLE / EVENTS ================= -->
+    <section class="middle">
+
+      <div class="event">
+        <div class="event-title">গায়ে হলুদ</div>
+        <div class="event-date">২৫ নভেম্বর, ২০২৬</div>
+        <div class="event-day">বুধবার</div>
+        <div class="event-time">সকাল ১০:০০টা থেকে</div>
+        <div class="event-place">অনুষ্ঠান স্থল</div>
+      </div>
+
+      <div class="event middle-center">
+        <div class="event-title">শুভ বিবাহ</div>
+        <div class="event-date">২৫ নভেম্বর, ২০২৬</div>
+        <div class="event-day">বুধবার</div>
+        <div class="event-time">স্থান ও শুভ মুহূর্ত : চিমটা, ভবানীপুর </div>
+        <div class="event-place">রাত্রি ১০টা</div>
+      </div>
+
+      <div class="event">
+        <div class="event-title">বৌভাত</div>
+        <div class="event-date">২৭ নভেম্বর, ২০২৬</div>
+        <div class="event-day">শুক্রবার</div>
+        <div class="event-time">সন্ধ্যে ৭:০০টা থেকে</div>
+        <div class="event-place">অনুষ্ঠান স্থল</div>
+      </div>
+
+    </section>
+
+
+    <!-- ================= BOTTOM / RECEPTION ================= -->
+    <section class="bottom">
+
+      <!-- LEFT: Invitation message -->
+      <div class="reception-left">
+
+        <div class="reception-title">
+          বিবাহোত্তর সংবর্ধনা
+        </div>
+
+        <div class="message">
+          শুভ বিবাহের আনন্দঘন এই মুহূর্তে<br>
+          আপনাদের সাদর আমন্ত্রণ জানাই<br>
+          আমাদের বিবাহোত্তর সংবর্ধনা অনুষ্ঠানে।
+        </div>
+
+        <div class="closing">
+          আপনাদের স্নেহ, আশীর্বাদ ও উপস্থিতিই<br>
+          আমাদের আনন্দকে পূর্ণতা দেবে।<br>
+          <br>
+          — সাদর আমন্ত্রণে —<br>
+          সপরিবারে
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Date / Time / Location / Map -->
+      <div class="reception-right">
+
+        <div class="reception-date">
+          ২৭ নভেম্বর, ২০২৬
+        </div>
+
+        <div class="reception-time">
+          শুক্রবার<br>
+          সন্ধ্যা ৭:০০টা থেকে
+        </div>
+
+        <div class="reception-place">
+          মালঞ্চা<br>
+          কলকাতা
+        </div>
+
+        <a class="map-link" href="https://maps.app.goo.gl/FYEMMuLkHhspNnPC6?g_st=aw" target="_blank">
+          📍 Google Maps-এ দেখুন
+        </a>
+
+      </div>
+
+    </section>
+
+  </div>
+</div>
 
 </body>
 </html>
